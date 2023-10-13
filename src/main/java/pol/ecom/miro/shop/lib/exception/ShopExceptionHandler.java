@@ -22,5 +22,34 @@ package pol.ecom.miro.shop.lib.exception;
  */
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.ObjectUtils;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import pol.ecom.miro.shop.lib.constant.MessageCode;
+import pol.ecom.miro.shop.lib.dto.response.MessageErrorResponse;
+import pol.ecom.miro.shop.lib.util.MessageUtil;
+
+@ControllerAdvice(basePackages = "pol.ecom.miro.shop")
 public class ShopExceptionHandler {
+    @Autowired
+    private MessageUtil messageUtil;
+
+    @ExceptionHandler({ShopException.class})
+    public ResponseEntity<MessageErrorResponse> ShopExceptionHandle(ShopException ex){
+        if(!ObjectUtils.isEmpty(ex.getCode())){
+            HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
+            String errorMessage = ex.getMessage() == null ? httpStatus.toString() : ex.getMessage();
+            return new ResponseEntity<>(new MessageErrorResponse(ex.getCode(), errorMessage), HttpStatus.BAD_REQUEST);
+        } else {
+            return response(HttpStatus.INTERNAL_SERVER_ERROR, MessageCode.MESSAGE_ERROR_SYSTEM_ERROR.getCode(),
+                    messageUtil.getMessage(MessageCode.MESSAGE_ERROR_SYSTEM_ERROR));
+        }
+    }
+    private ResponseEntity<MessageErrorResponse> response(HttpStatus httpStatus, String errorCode, String errorMessage) {
+        return new ResponseEntity<>(new MessageErrorResponse(errorCode, errorMessage), httpStatus);
+    }
+
 }

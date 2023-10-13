@@ -21,6 +21,12 @@ package pol.ecom.miro.shop.lib.dto.response;
  * IN THE SOFTWARE.
  */
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@Data
+@AllArgsConstructor
 public class MessageErrorResponse {
+    private String errorCode;
+    private String errorMessage;
 }
