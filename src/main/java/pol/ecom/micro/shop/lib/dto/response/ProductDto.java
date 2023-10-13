@@ -1,4 +1,4 @@
-package pol.ecom.micro.shop.lib.constant;
+package pol.ecom.micro.shop.lib.dto.response;
 /*
  * This is course Microservice Product Oriented
  * MIT No Attribution
@@ -22,14 +22,17 @@ package pol.ecom.micro.shop.lib.constant;
  */
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
+@Data
+@Builder
 @AllArgsConstructor
-public enum MessageCode {
-    MESSAGE_ERROR_SYSTEM_ERROR("SHOP-500"),
-    MESSAGE_ERROR_DUPLICATE_ACCOUNT("SHOP-400"),
-    MESSAGE_DUPLICATE_PRODUCT("PRO-300");
-    private final String code;
-
+@NoArgsConstructor
+public class ProductDto {
+    private long id;
+    private String sku;
+    private String name;
+    private Double price;
 }
