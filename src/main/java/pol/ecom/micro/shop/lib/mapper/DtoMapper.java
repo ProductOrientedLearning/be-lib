@@ -1,4 +1,4 @@
-package pol.ecom.miro.shop.lib.dto.response;
+package pol.ecom.micro.shop.lib.mapper;
 /*
  * This is course Microservice Product Oriented
  * MIT No Attribution
@@ -21,12 +21,23 @@ package pol.ecom.miro.shop.lib.dto.response;
  * IN THE SOFTWARE.
  */
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
-@Data
-@AllArgsConstructor
-public class MessageErrorResponse {
-    private String errorCode;
-    private String errorMessage;
+import java.util.List;
+
+public interface DtoMapper<E, D> {
+    /**
+     * This function allow transform data from entity to response data(dto).
+     *
+     * @param entity Object
+     * @return dto Object
+     */
+    D toDto(E entity);
+
+    /**
+     * This function allow transform data from list entities to response data(list dto).
+     *
+     * @param entities list Object
+     * @return list dto Object.
+     */
+    List<D> toListDto(List<E> entities);
 }

@@ -8,7 +8,7 @@
 		<version>3.1.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>pol.ecom</groupId>
+	<groupId>pol.ecom.micro</groupId>
 	<artifactId>shop-lib</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>be-lib</name>

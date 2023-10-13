@@ -1,4 +1,4 @@
-package pol.ecom.miro.shop.lib.mapper;
+package pol.ecom.micro.shop.lib.mapper;
 /*
  * This is course Microservice Product Oriented
  * MIT No Attribution

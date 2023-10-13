@@ -1,4 +1,4 @@
-package pol.ecom.miro.shop.lib.exception;
+package pol.ecom.micro.shop.lib.util;
 /*
  * This is course Microservice Product Oriented
  * MIT No Attribution
@@ -21,21 +21,19 @@ package pol.ecom.miro.shop.lib.exception;
  * IN THE SOFTWARE.
  */
 
-import lombok.Getter;
 
-@Getter
-public class ShopException extends RuntimeException {
-    private final String code;
-    private final String message;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.stereotype.Component;
+import pol.ecom.micro.shop.lib.constant.MessageCode;
 
-    public ShopException(String code, String message) {
-        super(message);
-        this.code = code;
-        this.message = message;
-    }
+@Component
+public class MessageUtil {
+    @Autowired
+    private MessageSource messageSource;
 
-    public ShopException() {
-        this.code = "";
-        this.message = "";
+    public String getMessage(MessageCode key, Object... params) {
+        return messageSource.getMessage(key.getCode(), params, LocaleContextHolder.getLocale());
     }
 }

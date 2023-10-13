@@ -1,4 +1,4 @@
-package pol.ecom.miro.shop.lib.mapper;
+package pol.ecom.micro.shop.lib.exception;
 /*
  * This is course Microservice Product Oriented
  * MIT No Attribution
@@ -21,23 +21,21 @@ package pol.ecom.miro.shop.lib.mapper;
  * IN THE SOFTWARE.
  */
 
+import lombok.Getter;
 
-import java.util.List;
+@Getter
+public class ShopException extends RuntimeException {
+    private final String code;
+    private final String message;
 
-public interface DtoMapper<E, D> {
-    /**
-     * This function allow transform data from entity to response data(dto).
-     *
-     * @param entity Object
-     * @return dto Object
-     */
-    D toDto(E entity);
+    public ShopException(String code, String message) {
+        super(message);
+        this.code = code;
+        this.message = message;
+    }
 
-    /**
-     * This function allow transform data from list entities to response data(list dto).
-     *
-     * @param entities list Object
-     * @return list dto Object.
-     */
-    List<D> toListDto(List<E> entities);
+    public ShopException() {
+        this.code = "";
+        this.message = "";
+    }
 }

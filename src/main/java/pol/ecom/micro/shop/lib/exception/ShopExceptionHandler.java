@@ -1,4 +1,4 @@
-package pol.ecom.miro.shop.lib.exception;
+package pol.ecom.micro.shop.lib.exception;
 /*
  * This is course Microservice Product Oriented
  * MIT No Attribution
@@ -28,11 +28,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import pol.ecom.miro.shop.lib.constant.MessageCode;
-import pol.ecom.miro.shop.lib.dto.response.MessageErrorResponse;
-import pol.ecom.miro.shop.lib.util.MessageUtil;
+import pol.ecom.micro.shop.lib.constant.MessageCode;
+import pol.ecom.micro.shop.lib.dto.response.MessageErrorResponse;
+import pol.ecom.micro.shop.lib.util.MessageUtil;
 
-@ControllerAdvice(basePackages = "pol.ecom.miro.shop")
+@ControllerAdvice(basePackages = "pol.ecom.micro.shop")
 public class ShopExceptionHandler {
     @Autowired
     private MessageUtil messageUtil;

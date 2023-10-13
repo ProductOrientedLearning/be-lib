@@ -1,4 +1,4 @@
-package pol.ecom.miro.shop.lib.constant;
+package pol.ecom.micro.shop.lib.constant;
 /*
  * This is course Microservice Product Oriented
  * MIT No Attribution
@@ -21,14 +21,25 @@ package pol.ecom.miro.shop.lib.constant;
  * IN THE SOFTWARE.
  */
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
-@Getter
-@AllArgsConstructor
-public enum MessageCode {
-    MESSAGE_ERROR_SYSTEM_ERROR("SHOP-500"),
-    MESSAGE_ERROR_DUPLICATE_ACCOUNT("SHOP-400");
-    private final String code;
+public class CommonConstants {
+    public static final String ARRAY_SEPARATOR = ",";
 
+    private CommonConstants() {
+    }
+
+    public static class EntityProperties {
+        public static final String NAME = "name";
+
+        private EntityProperties() {
+        }
+    }
+
+    public static class HeaderInfo {
+        public static final String SYSTEM_AUTH = "System-Eco";
+
+        private HeaderInfo() {
+        }
+
+    }
 }

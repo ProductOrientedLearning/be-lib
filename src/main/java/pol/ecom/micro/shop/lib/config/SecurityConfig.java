@@ -1,4 +1,4 @@
-package pol.ecom.miro.shop.lib.config;
+package pol.ecom.micro.shop.lib.config;
 /*
  * This is course Microservice Product Oriented
  * MIT No Attribution

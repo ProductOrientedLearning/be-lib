@@ -1,4 +1,4 @@
-package pol.ecom.miro.shop.lib.config;
+package pol.ecom.micro.shop.lib.config;
 /*
  * This is course Microservice Product Oriented
  * MIT No Attribution
@@ -33,7 +33,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
-import pol.ecom.miro.shop.lib.constant.CommonConstants;
+import pol.ecom.micro.shop.lib.constant.CommonConstants;
 
 import java.io.IOException;
 import java.util.Collections;

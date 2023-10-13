@@ -1,4 +1,4 @@
-package pol.ecom.miro.shop.lib.constant;
+package pol.ecom.micro.shop.lib.dto.response;
 /*
  * This is course Microservice Product Oriented
  * MIT No Attribution
@@ -21,25 +21,12 @@ package pol.ecom.miro.shop.lib.constant;
  * IN THE SOFTWARE.
  */
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-public class CommonConstants {
-    public static final String ARRAY_SEPARATOR = ",";
-
-    private CommonConstants() {
-    }
-
-    public static class EntityProperties {
-        public static final String NAME = "name";
-
-        private EntityProperties() {
-        }
-    }
-
-    public static class HeaderInfo {
-        public static final String SYSTEM_AUTH = "System-Eco";
-
-        private HeaderInfo() {
-        }
-
-    }
+@Data
+@AllArgsConstructor
+public class MessageErrorResponse {
+    private String errorCode;
+    private String errorMessage;
 }

@@ -1,4 +1,4 @@
-package pol.ecom.miro.shop.lib.util;
+package pol.ecom.micro.shop.lib.constant;
 /*
  * This is course Microservice Product Oriented
  * MIT No Attribution
@@ -21,19 +21,14 @@ package pol.ecom.miro.shop.lib.util;
  * IN THE SOFTWARE.
  */
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.stereotype.Component;
-import pol.ecom.miro.shop.lib.constant.MessageCode;
+@Getter
+@AllArgsConstructor
+public enum MessageCode {
+    MESSAGE_ERROR_SYSTEM_ERROR("SHOP-500"),
+    MESSAGE_ERROR_DUPLICATE_ACCOUNT("SHOP-400");
+    private final String code;
 
-@Component
-public class MessageUtil {
-    @Autowired
-    private MessageSource messageSource;
-
-    public String getMessage(MessageCode key, Object... params) {
-        return messageSource.getMessage(key.getCode(), params, LocaleContextHolder.getLocale());
-    }
 }
