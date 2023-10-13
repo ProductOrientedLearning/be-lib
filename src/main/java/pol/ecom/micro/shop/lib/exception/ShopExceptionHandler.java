@@ -32,7 +32,7 @@ import pol.ecom.micro.shop.lib.constant.MessageCode;
 import pol.ecom.micro.shop.lib.dto.response.MessageErrorResponse;
 import pol.ecom.micro.shop.lib.util.MessageUtil;
 
-@ControllerAdvice(basePackages = "pol.ecom.micro.shop")
+@ControllerAdvice(basePackages = "pol.ecom")
 public class ShopExceptionHandler {
     @Autowired
     private MessageUtil messageUtil;
@@ -42,7 +42,7 @@ public class ShopExceptionHandler {
         if(!ObjectUtils.isEmpty(ex.getCode())){
             HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
             String errorMessage = ex.getMessage() == null ? httpStatus.toString() : ex.getMessage();
-            return new ResponseEntity<>(new MessageErrorResponse(ex.getCode(), errorMessage), HttpStatus.BAD_REQUEST);
+            return response(httpStatus, ex.getCode(), errorMessage);
         } else {
             return response(HttpStatus.INTERNAL_SERVER_ERROR, MessageCode.MESSAGE_ERROR_SYSTEM_ERROR.getCode(),
                     messageUtil.getMessage(MessageCode.MESSAGE_ERROR_SYSTEM_ERROR));

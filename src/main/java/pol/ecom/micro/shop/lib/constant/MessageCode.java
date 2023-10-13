@@ -29,7 +29,8 @@ import lombok.Getter;
 public enum MessageCode {
     MESSAGE_ERROR_SYSTEM_ERROR("SHOP-500"),
     MESSAGE_ERROR_DUPLICATE_ACCOUNT("SHOP-400"),
-    MESSAGE_DUPLICATE_PRODUCT("PRO-300");
+    MESSAGE_DUPLICATE_PRODUCT("PRO-300"),
+    MESSAGE_PRODUCT_NOT_FOUND("PRO-404");
     private final String code;
 
 }
