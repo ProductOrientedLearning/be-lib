@@ -37,28 +37,29 @@ import pol.ecom.micro.shop.lib.util.RestUtility;
 @Component
 public class ProductIntegrateImpl implements ProductIntegrate {
 
- @Value("${url.product-service}")
- private String urlProduct;
- @Value("${header.security.key-token}")
- private String keyToken;
- @Value("${header.security.value-token}")
- private String valueToken;
- @Autowired
- private RestTemplate restTemplate;
- @Autowired
- private MessageUtil messageUtil;
+    @Value("${url.product-service}")
+    private String urlProduct;
+    @Value("${header.security.key-token}")
+    private String keyToken;
+    @Value("${header.security.value-token}")
+    private String valueToken;
+    @Autowired
+    private RestTemplate restTemplate;
+    @Autowired
+    private MessageUtil messageUtil;
 
 
- @Override
- public ProductDto getProductById(long id) {
-  RestUtility<ProductDto> restUtility = new RestUtility<>();
-  restUtility.setRestTemplate(restTemplate);
-  restUtility.setUrl(urlProduct + "/internal/product/id/" +id);
-  restUtility.setTypeReference(new ParameterizedTypeReference<ProductDto>(){});
-  restUtility.setHttpMethod(HttpMethod.GET);
-  restUtility.setKeyToken(keyToken);
-  restUtility.setValueToken(valueToken);
-  ResponseEntity<ProductDto> response = restUtility.exchange();
-  return response.getBody();
- }
+    @Override
+    public ProductDto getProductById(long id) {
+        RestUtility<ProductDto> restUtility = new RestUtility<>();
+        restUtility.setRestTemplate(restTemplate);
+        restUtility.setUrl(urlProduct + "/internal/product/id/" + id);
+        restUtility.setTypeReference(new ParameterizedTypeReference<ProductDto>() {
+        });
+        restUtility.setHttpMethod(HttpMethod.GET);
+        restUtility.setKeyToken(keyToken);
+        restUtility.setValueToken(valueToken);
+        ResponseEntity<ProductDto> response = restUtility.exchange();
+        return response.getBody();
+    }
 }
