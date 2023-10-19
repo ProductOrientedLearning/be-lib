@@ -5,3 +5,6 @@ header:
   security:
     key-token: x-access-token
     value-token: ackoilkadjfoajad12
+
+url:
+  product-service: ${PRODUCT_SERVICE_URL:http://localhost:8081}/eshop-product
